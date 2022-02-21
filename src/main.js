@@ -1,11 +1,4 @@
-const app = document.getElementById("app");
-const p = document.createElement("p");
-p.innerText = "write p";
-app.appendChild(p);
-
 import * as Three from 'three';
-
-console.log("Three", Three);
 
 let scene, camera, renderer, cube;
 

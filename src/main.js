@@ -1,6 +1,6 @@
 import * as Three from "three";
 
-export default class Sandbox {
+export class Sandbox {
   scene;
   camera;
   renderer;

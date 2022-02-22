@@ -32,25 +32,26 @@ export default class Sandbox {
 
     this.camera.position.z = 5;
   }
-  show(){
+
+  Show() {
+    const _this = this;
+    function animate(){
+      requestAnimationFrame(animate);
+
+      _this.cube.rotation.x += 0.01;
+      _this.cube.rotation.y += 0.01;
+
+      _this.renderer.render(_this.scene, _this.camera);
+    }
+
+    function onWindowResize() {
+      _this.camera.aspect = window.innerWidth / window.innerHeight;
+      _this.camera.updateProjectionMatrix();
+      _this.renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+    
     window.addEventListener("resize", onWindowResize, false);
     animate();
   }
 }
 
-const _this = this;
-
-function animate() {
-  requestAnimationFrame(_this.animate);
-
-  _this.cube.rotation.x += 0.01;
-  _this.cube.rotation.y += 0.01;
-
-  _this.renderer.render(_this.scene, _this.camera);
-}
-
-function onWindowResize() {
-  _this.camera.aspect = window.innerWidth / window.innerHeight;
-  _this.camera.updateProjectionMatrix();
-  _this.renderer.setSize(window.innerWidth, window.innerHeight);
-}

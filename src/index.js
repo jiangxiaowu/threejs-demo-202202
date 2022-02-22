@@ -1,3 +1,6 @@
+import Sandbox from "./main";
+
 var hostElement = document.getElementById("app");
 
-BABYLON.Sandbox.Show(hostElement);
+var sandbox = new Sandbox(); 
+sandbox.Show();

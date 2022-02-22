@@ -1,6 +1,6 @@
-import Sandbox from "main.js";
+import Sandbox from "./main";
 
 var hostElement = document.getElementById("app");
 
-var sandbox = Sandbox(); 
+var sandbox = new Sandbox(); 
 sandbox.Show();

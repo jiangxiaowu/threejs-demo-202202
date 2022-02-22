@@ -13,7 +13,7 @@ module.exports = (env = {}) => {
   return {
     mode: "development",
     devtool: "source-map",
-    entry: path.resolve(__dirname, "src/main.js"),
+    entry: path.resolve(__dirname, "src/index.js"),
     output: {
       filename: "[name].bundle.js",
       path: path.resolve(__dirname, "dist"),

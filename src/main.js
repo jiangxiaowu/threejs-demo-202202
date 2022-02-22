@@ -1,6 +1,6 @@
 import * as Three from "three";
 
-export class Sandbox {
+export default class Sandbox {
   scene;
   camera;
   renderer;
@@ -32,10 +32,8 @@ export class Sandbox {
 
     this.camera.position.z = 5;
   }
-  show(){
-    window.addEventListener("resize", onWindowResize, false);
-    animate();
-  }
+
+  
 }
 
 const _this = this;
@@ -53,4 +51,9 @@ function onWindowResize() {
   _this.camera.aspect = window.innerWidth / window.innerHeight;
   _this.camera.updateProjectionMatrix();
   _this.renderer.setSize(window.innerWidth, window.innerHeight);
+}
+
+Show();{
+  window.addEventListener("resize", onWindowResize, false);
+  animate();
 }

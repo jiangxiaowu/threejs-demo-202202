@@ -33,7 +33,7 @@ export default class Sandbox {
     this.camera.position.z = 5;
   }
 
-  Show() {
+  show() {
     const _this = this;
     function animate(){
       requestAnimationFrame(animate);

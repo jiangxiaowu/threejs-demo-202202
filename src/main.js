@@ -1,52 +1,56 @@
-// import * as Three from 'three';
+import * as Three from "three";
 
-// let scene, camera, renderer, cube;
+export default class Sandbox {
+  scene;
+  camera;
+  renderer;
+  cube;
 
-// function init() {
-//     scene = new Three.Scene();
+  constructor() {
+    this.scene = new Three.Scene();
 
-//     camera = new Three.PerspectiveCamera(
-//         75,
-//         window.innerWidth / window.innerHeight,
-//         0.1,
-//         1000
-//     )
+    this.camera = new Three.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
 
-//     renderer = new Three.WebGLRenderer({ antialias: true });
+    this.renderer = new Three.WebGLRenderer({ antialias: true });
 
-//     renderer.setSize(window.innerWidth, window.innerHeight);
+    this.renderer.setSize(window.innerWidth, window.innerHeight);
 
-//     document.body.appendChild(renderer.domElement);
+    document.body.appendChild(this.renderer.domElement);
 
-//     const geometry = new Three.BoxGeometry(2, 2, 2);
-//     const material = new Three.MeshBasicMaterial({ color: 0xaaafff });
+    const geometry = new Three.BoxGeometry(2, 2, 2);
+    const material = new Three.MeshBasicMaterial({ color: 0xaaafff });
 
-//     // const texture = new Three.TextureLoader().load('textures/crate.gif');
-//     // const material = new Three.MeshBasicMaterial({ map: texture });
-//     cube = new Three.Mesh(geometry, material);
-//     scene.add(cube);
+    // const texture = new Three.TextureLoader().load('textures/crate.gif');
+    // const material = new Three.MeshBasicMaterial({ map: texture });
+    this.cube = new Three.Mesh(geometry, material);
+    this.scene.add(this.cube);
 
-//     camera.position.z = 5;
-// }
+    this.camera.position.z = 5;
+  }
+  show(){
+    window.addEventListener("resize", onWindowResize, false);
+    animate();
+  }
+}
 
+const _this = this;
 
+function animate() {
+  requestAnimationFrame(_this.animate);
 
-// function animate() {
-//     requestAnimationFrame(animate);
+  _this.cube.rotation.x += 0.01;
+  _this.cube.rotation.y += 0.01;
 
-//     cube.rotation.x += 0.01;
-//     cube.rotation.y += 0.01;
+  _this.renderer.render(_this.scene, _this.camera);
+}
 
-//     renderer.render(scene, camera);
-// }
-
-// function onWindowResize() {
-//     camera.aspect = window.innerWidth / window.innerHeight;
-//     camera.updateProjectionMatrix();
-//     renderer.setSize(window.innerWidth, window.innerHeight);
-// }
-
-// window.addEventListener('resize', onWindowResize, false);
-
-// init();
-// animate();
+function onWindowResize() {
+  _this.camera.aspect = window.innerWidth / window.innerHeight;
+  _this.camera.updateProjectionMatrix();
+  _this.renderer.setSize(window.innerWidth, window.innerHeight);
+}

@@ -1,6 +1,6 @@
 import * as Three from "three";
 
-export default class sandbox {
+export default class Sandbox {
   scene;
   camera;
   renderer;
@@ -36,7 +36,7 @@ export default class sandbox {
   Show() {
     const _this = this;
     function animate(){
-      requestAnimationFrame(_this.animate);
+      requestAnimationFrame(animate);
 
       _this.cube.rotation.x += 0.01;
       _this.cube.rotation.y += 0.01;
